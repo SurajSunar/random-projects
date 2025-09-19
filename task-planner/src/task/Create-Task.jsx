@@ -17,7 +17,7 @@ function CreateTask({ open, setOpen, task }) {
   const handleClose = () => {
     setOpen(false);
     form.resetFields();
-  };``
+  };
 
   return (
     <Modal
