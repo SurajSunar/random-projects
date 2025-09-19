@@ -23,18 +23,17 @@ import TaskList from "./task/Task-List";
 import CreateTask from "./task/Create-Task";
 import Header from "./layout/header";
 import Footer from "./layout/footer";
-
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   const [open, setOpen] = useState();
-  const [task, setTask] = useState();
  
   return (
     <div className="bg-gray-200 h-screen overflow-hidden">
       <Header setOpen={setOpen} />
-      <TaskList setOpen={setOpen} setTask={setTask}></TaskList>
+      <TaskList open={open} setOpen={setOpen} />
       <Footer />
-      <CreateTask open={open} setOpen={setOpen} task={task}></CreateTask>
+      <ToastContainer />
     </div>
   );
 };

@@ -2,16 +2,18 @@ import { Button, Form, Input, Modal, Select } from "antd";
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import { usePlanner } from "../store/usePlanner";
+import { toast } from "react-toastify";
 
-function CreateTask({ open, setOpen, task }) {
+function CreateTask({ open, setOpen }) {
   const [form] = Form.useForm();
   const { addTask, updateTask } = usePlanner();
 
-  task && form.setFieldsValue(task)
+  open?.task && form.setFieldsValue(open?.task)
 
   const manageTask = (value) => {
-    task.id ? updateTask({...value, id: task.id}) : addTask({ ...value, id: uuidv4() });
+    open.task ? updateTask({...value, id: open.task.id}) : addTask({ ...value, id: uuidv4() });
     handleClose();
+    toast(open.task.id ? 'Task updated successfully' : 'Task created successfully')
   };
 
   const handleClose = () => {

@@ -3,6 +3,8 @@ import { usePlanner } from "../store/usePlanner";
 import { Badge, Empty } from "antd";
 import Task from "./Task";
 import { Plus } from "lucide-react";
+import { toast } from "react-toastify";
+import CreateTask from "./Create-Task";
 const COLUMNS = ["highest", "medium", "lowest"];
 
 const BADGE_COLORS = {
@@ -11,7 +13,7 @@ const BADGE_COLORS = {
   lowest: "!bg-cyan-500",
 };
 
-function TaskList({ setOpen, setTask }) {
+function TaskList({ open, setOpen }) {
   const { filterTasks, updateTask, deleteTask } = usePlanner();
 
   let list = COLUMNS.reduce((acc, key) => {
@@ -23,16 +25,17 @@ function TaskList({ setOpen, setTask }) {
 
   const editStatus = (id, status) => {
     updateTask({ id, status });
+    toast('Task status updated successfully')
   };
 
   const editTask = (task) => {
-      setOpen(true)
-      setTask(task)
+      setOpen({value: true, task})
   };
 
 
   const confirmDelete = (id) => {
     deleteTask({ id });
+    toast('Status deleted successfully')
   };
 
   return (
@@ -61,7 +64,7 @@ function TaskList({ setOpen, setTask }) {
                     <Empty description={`No ${key} task in the list`}></Empty>
                     <button
                       className="cursor-pointer px-2 py-1 rounded flex gap-1 bg-blue-500 text-white"
-                      onClick={() => setOpen(true)}
+                      onClick={() => setOpen({value: false})}
                     >
                       <Plus />
                       Add Task
@@ -73,6 +76,7 @@ function TaskList({ setOpen, setTask }) {
           </div>
         ))}
       </section>
+      <CreateTask open={open} setOpen={setOpen}></CreateTask>
     </>
   );
 }

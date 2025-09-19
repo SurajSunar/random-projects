@@ -21,7 +21,7 @@ function Header({setOpen}) {
           <DatePicker placeholder="Select Date" format={"DD MMM YYYY"} onChange={filterByDate} />
           <button
                 className="px-2 py-1 rounded flex gap-1 bg-blue-500 text-white cursor-pointer"
-                onClick={() => setOpen(true)}
+                onClick={() => setOpen({value: true})}
               >
                 <Plus />
                 Add Task
