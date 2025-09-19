@@ -83,7 +83,6 @@ function App() {
   }
 
   const resizeBy = (e) => {
-    debugger
     e.stopPropagation()
     const width = e.target.parentNode.clientWidth;
     const height = e.target.parentNode.clientHeight;
