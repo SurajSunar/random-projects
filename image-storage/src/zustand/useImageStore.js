@@ -11,7 +11,6 @@ export const useImageStore = create(
         })),
       deleteImage: (id) => 
          set((state) => {
-            debugger
             const images = state.images.filter(row => row.id !== id) 
            return  {images }
          }),  
