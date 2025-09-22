@@ -9,6 +9,12 @@ export const useImageStore = create(
         set((state) => ({
           images: [...state.images, binary],
         })),
+      deleteImage: (id) => 
+         set((state) => {
+            debugger
+            const images = state.images.filter(row => row.id !== id) 
+           return  {images }
+         }),  
     }),
     { name: "image-store" }
   )
