@@ -1,12 +1,14 @@
-# React + Vite
+## Image storage
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is developed to store images using zustand and its persist concept. 
+- The user can add images only of maximum 5MB. 
+- Images list display viewed as grid
+- User can download the image
+- Images can be deleted if required
 
-Currently, two official plugins are available:
+## Tech stack used
+- React 19
+- Lucide icons
+- Zustand
+- Ant design
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
