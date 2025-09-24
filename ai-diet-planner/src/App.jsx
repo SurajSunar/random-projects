@@ -1,12 +1,9 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import { dietPrompt } from "./utils/prompt";
 import useDiet from "./hooks/useDiet";
 
 const App = () => {
   const [form, setForm] = useState();
-
   const {loading, result, getDiet, error} = useDiet()
 
   const valueChange = (e) => {
@@ -19,10 +16,12 @@ const App = () => {
   const createDiet = async (e) => {
     e.preventDefault();
     
-    
-
-
+    await getDiet(form);
   };
+
+  useEffect(()=> {
+      toast.error(error)
+  }, [error])
 
   return (
     <div className="bg-slate-900 min-h-screen">
@@ -61,7 +60,7 @@ const App = () => {
 
             <button
               disabled= {loading}
-              className="w-fit rounded py-2 px-4 bg-indigo-500 text-white active:scale-90 duration-200 cursor-pointer"
+              className="w-fit rounded py-2 px-4 bg-indigo-500 text-white active:scale-90 duration-200 cursor-pointer disabled:bg-gray-400"
               type="submit w-fit"
             >
               {loading ? 'Loading...' : 'Submit'}
@@ -69,7 +68,7 @@ const App = () => {
           </form>
         </div>
         <div className="bg-white rounded-lg border-2 border-slate-600 flex-1 p-10">  
-          <div dangerouslySetInnerHTML={{__html: result.replaceAll('```html', '').replaceAll('```', '')}}></div>
+          <div dangerouslySetInnerHTML={{__html: result?.replaceAll('```html', '')?.replaceAll('```', '')}}></div>
         </div>
       </div>
       <ToastContainer />
