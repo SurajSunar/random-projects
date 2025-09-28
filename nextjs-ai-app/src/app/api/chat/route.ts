@@ -9,12 +9,13 @@ export async function POST(req: NextRequest) {
     
     const { message } = await req.json();
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash", systemInstruction: {
-        text: `You are expert in generating as per suggestion from the user. The response as:
+        text: `You are an expert in generating as per suggestion from the user. The response as:
         - to be in html format with properly beautification of section and block as per need. 
         - Should be appealing looks
         - DO NOT generate custom css as style in header. You may add tailwind classes only.
         - All generated text should be in black color.
-        - Text should not overflow from rendering container. Align text accordingly`
+        - Text should not overflow from rendering container. Align text accordingly
+        - Remove the spacing and border for main container`
     } }); 
 
     const result = await model.generateContent(message);
