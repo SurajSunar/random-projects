@@ -8,3 +8,6 @@
  - Zustand
  - Lucide
  - Tailwind
+
+## Note
+ This code base will give us chance to play with zustand getter and setter with feature of using persist storage (basically its localstorage). There is active usage of ant design component for proper UI.
