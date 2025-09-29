@@ -1,13 +1,10 @@
 import { Modal, Form, Input, Button, Popconfirm } from "antd";
 import {
-  Delete,
-  DeleteIcon,
   ExternalLink,
-  LucideDelete,
   Plus,
   Trash2,
 } from "lucide-react";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useBookmark } from "./zustand/useBookmark";
 import dayjs from "dayjs";
 const App = () => {
@@ -70,8 +67,7 @@ const App = () => {
               <a
                 href={bookmark.url}
                 className="text-sm text-gray-400 flex items-center gap-2 hover:underline hover:text-gray-800"
-                target="_blank"
-              >
+                target="_blank">
                 Visit
                 <ExternalLink className="w-4 h-10" />
               </a>
