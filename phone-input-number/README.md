@@ -1,5 +1,6 @@
 # About Project
 This project is a custom project to demonstrate country code selection and validate the phone number based on it.
+This can be used as base for phone input wuth country code.
 
 # Tech used
 - React 19
