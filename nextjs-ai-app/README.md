@@ -1,4 +1,4 @@
-# Getting Started
+I'm# Getting Started
 
 First, run the development server:
 
@@ -18,5 +18,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## About Project
 - This is project is created to test response from LLM based on prompt defined. 
 - There is provision to get response directly 
-- Other one is based on streaming 
+- Other one is based on streaming
+- More feature like chapgpt in coming phase.
 
